@@ -1,0 +1,4 @@
+P1: mean=38.30 std=2.53
+P2: mean=111.00 std=5.39
+P3: mean=259.10 std=4.09
+P4: mean=241.60 std=7.16
