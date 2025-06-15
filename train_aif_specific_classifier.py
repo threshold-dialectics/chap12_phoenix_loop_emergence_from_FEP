@@ -10,6 +10,10 @@ import joblib
 import pickle
 import os
 import matplotlib.pyplot as plt
+# Set consistent font sizes across all plots
+plt.rcParams.update({'font.size': 16,
+                     'xtick.labelsize': 12,
+                     'ytick.labelsize': 12})
 from scipy.signal import savgol_filter # For derivatives
 from scipy.stats import linregress
 from collections import Counter # For model entropy calculation (if needed directly here, though usually from history)
@@ -381,7 +385,7 @@ def train_aif_classifier():
         
         results_dir = "results_aif_phoenix"
         os.makedirs(results_dir, exist_ok=True)
-        plt.savefig(os.path.join(results_dir, "aif_specific_classifier_CM.png"))
+        plt.savefig(os.path.join(results_dir, "aif_specific_classifier_CM.png"), dpi=350)
         print(f"Saved Confusion Matrix to {os.path.join(results_dir, 'aif_specific_classifier_CM.png')}")
         plt.close() # Close the plot
 

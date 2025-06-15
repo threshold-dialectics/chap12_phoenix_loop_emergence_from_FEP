@@ -6,6 +6,10 @@ from collections import Counter
 import pickle
 
 import matplotlib.pyplot as plt
+# Set consistent font sizes across all plots
+plt.rcParams.update({'font.size': 16,
+                     'xtick.labelsize': 12,
+                     'ytick.labelsize': 12})
 
 from aif_phoenix_sim import EnvironmentConfigAIF, AIFPhoenixSimulation
 
@@ -126,7 +130,7 @@ def plot_averaged_history(histories, output_prefix="avg"):
     axs[6].set_xlabel("Time Steps")
     plt.suptitle("AIF-Phoenix Replication Mean Trajectories")
     plt.tight_layout(rect=[0, 0, 1, 0.97])
-    plt.savefig(f"results_aif_phoenix/{output_prefix}_timeseries.png")
+    plt.savefig(f"results_aif_phoenix/{output_prefix}_timeseries.png", dpi=350)
     plt.close(fig)
 
 

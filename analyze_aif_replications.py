@@ -3,6 +3,10 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+# Set consistent font sizes across all plots
+plt.rcParams.update({'font.size': 16,
+                     'xtick.labelsize': 12,
+                     'ytick.labelsize': 12})
 import seaborn as sns
 import pickle
 import os
@@ -273,7 +277,7 @@ def perform_quantitative_analysis():
             plt.ylabel(diag_key_plot)
             plt.xlabel('Phase')
             plt.tight_layout()
-            plt.savefig(os.path.join(OUTPUT_DIR, f"boxplot_{diag_key_plot}_per_phase.png"))
+            plt.savefig(os.path.join(OUTPUT_DIR, f"boxplot_{diag_key_plot}_per_phase.png"), dpi=350)
         else:
             print(f"    No data to plot for {diag_key_plot}")
         plt.close()
@@ -450,7 +454,7 @@ def perform_quantitative_analysis():
             print(f"\n  Pearson correlation between Snapshot H(M) and Macroscopic rhoE: r={corr_coef:.4f}, p={p_val_corr:.4e}")
         
         plt.tight_layout()
-        plt.savefig(os.path.join(OUTPUT_DIR, "correlation_snapshot_entropy_vs_rhoE.png"))
+        plt.savefig(os.path.join(OUTPUT_DIR, "correlation_snapshot_entropy_vs_rhoE.png"), dpi=350)
         plt.close()
         print("  Correlation plot saved.")
     else:

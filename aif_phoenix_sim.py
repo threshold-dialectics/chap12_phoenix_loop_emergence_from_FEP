@@ -2,6 +2,10 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+# Set consistent font sizes across all plots
+plt.rcParams.update({'font.size': 16,
+                     'xtick.labelsize': 12,
+                     'ytick.labelsize': 12})
 from matplotlib.colors import ListedColormap
 from scipy.stats import entropy as shannon_entropy
 from scipy.signal import savgol_filter
@@ -725,7 +729,7 @@ class AIFPhoenixSimulation:
 
         plt.suptitle(f'AIF-Phoenix Simulation Results ({self.config.study_id})', fontsize=16)
         plt.tight_layout(rect=[0, 0, 1, 0.97])
-        plt.savefig(f"results_aif_phoenix/timeseries_{self.config.study_id}.png")
+        plt.savefig(f"results_aif_phoenix/timeseries_{self.config.study_id}.png", dpi=350)
         plt.close(fig)
         print(f"Saved timeseries plot to results_aif_phoenix/timeseries_{self.config.study_id}.png")
 
@@ -760,7 +764,7 @@ class AIFPhoenixSimulation:
             ax_3d.set_ylim(-1.1, 1.1)
             ax_3d.set_zlim(np.nanmin(R_plot) if not np.all(np.isnan(R_plot)) else 0, np.nanmax(R_plot) if not np.all(np.isnan(R_plot)) else 2) # Adjust Zlim as needed
             ax_3d.set_title(r'Diagnostic Trajectory ($\mathcal{S}, \mathcal{C}, \rho_E$) - ' + self.config.study_id)
-            plt.savefig(f"results_aif_phoenix/diagnostic_trajectory_3d_{self.config.study_id}.png")
+            plt.savefig(f"results_aif_phoenix/diagnostic_trajectory_3d_{self.config.study_id}.png", dpi=350)
         else:
             print("Skipping 3D plot due to empty diagnostic data.")
         plt.close(fig_3d)
@@ -813,7 +817,7 @@ class AIFPhoenixSimulation:
 
             plt.suptitle(f"Agent Model Distributions - {self.config.study_id}")
             plt.tight_layout(rect=[0, 0, 1, 0.95])
-            plt.savefig(f"results_aif_phoenix/model_distributions_{self.config.study_id}.png")
+            plt.savefig(f"results_aif_phoenix/model_distributions_{self.config.study_id}.png", dpi=350)
             plt.close(fig_dist)
             print(f"Saved model distributions plot to results_aif_phoenix/model_distributions_{self.config.study_id}.png")
 
@@ -832,7 +836,7 @@ class AIFPhoenixSimulation:
             ax_env.set_xlabel("Time Steps")
             ax_env.legend()
             ax_env.set_title(f"Environment State Evolution - {self.config.study_id}")
-            plt.savefig(f"results_aif_phoenix/env_state_evolution_{self.config.study_id}.png")
+            plt.savefig(f"results_aif_phoenix/env_state_evolution_{self.config.study_id}.png", dpi=350)
             plt.close(fig_env)
             print(f"Saved environment state plot to results_aif_phoenix/env_state_evolution_{self.config.study_id}.png")
 
